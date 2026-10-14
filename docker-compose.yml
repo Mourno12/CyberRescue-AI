@@ -1,0 +1,55 @@
+# WarRoom — all four agents (Phase 4). Three frameworks across four agents:
+# Triage + Threat Intel (LangGraph), Compliance (Pydantic AI, second account),
+# Commander (Anthropic). Bring the whole room up cold with:
+#     docker compose up
+# then fire an incident from the host:
+#     python -m injector.inject_alert INC-C
+#
+# Each service tails its own log to its own terminal pane — the demo's "four
+# visibly different framework logs" shot.
+
+services:
+
+  triage:
+    build: .
+    container_name: warroom-triage
+    command: ["python", "-m", "agents.triage.main"]
+    env_file:
+      - .env
+      - .env.local
+    volumes:
+      - ./agent_config.yaml:/app/agent_config.yaml:ro
+    restart: "no"
+    tty: true
+
+  commander:
+    build: .
+    container_name: warroom-commander
+    command: ["python", "-m", "agents.commander.main"]
+    env_file:
+      - .env
+      - .env.local
+    volumes:
+      - ./agent_config.yaml:/app/agent_config.yaml:ro
+    restart: "no"
+    tty: true
+
+  threat_intel:
+    build: .
+    container_name: warroom-threat-intel
+    command: ["python", "-m", "agents.threat_intel.main"]
+    env_file: [.env, .env.local]
+    volumes:
+      - ./agent_config.yaml:/app/agent_config.yaml:ro
+    restart: "no"
+    tty: true
+
+  compliance:
+    build: .
+    container_name: warroom-compliance
+    command: ["python", "-m", "agents.compliance.main"]
+    env_file: [.env, .env.local]
+    volumes:
+      - ./agent_config.yaml:/app/agent_config.yaml:ro
+    restart: "no"
+    tty: true

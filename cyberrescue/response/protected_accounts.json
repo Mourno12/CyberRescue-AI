@@ -1,0 +1,13 @@
+{
+  "_comment": "Accounts the response planner never proposes to disable as a plan step (decision Q5). A protected account found in evidence becomes a human decision point instead. Names are compared case-insensitively. Operators add their own break-glass and incident-response accounts here. Machine accounts (ending in '$') and anything that is not a plain account name are refused separately by targets.py.",
+  "schema": "cyberrescue.protected-accounts/1",
+  "accounts": [
+    "administrator",
+    "krbtgt",
+    "system",
+    "localsystem",
+    "defaultaccount",
+    "wdagutilityaccount",
+    "root"
+  ]
+}

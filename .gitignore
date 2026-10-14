@@ -1,0 +1,34 @@
+.env
+.env.local
+agent_config.yaml
+__pycache__/
+*.pyc
+.venv/
+.uv/
+*.egg-info/
+actions_log.jsonl
+regulatory_clocks.json
+*.log
+*.log.err
+install_log.txt
+exports/
+*.mp4
+.DS_Store
+reports/
+
+# Local-only: demo assets (video script, presentation) — not for GitHub
+demo/
+# Runtime pid file written by scripts/run_all.ps1
+.run_all.pids
+# CyberRescue Core SQLite database (+ WAL/SHM side files)
+cyberrescue*.db
+cyberrescue*.db-wal
+cyberrescue*.db-shm
+# CyberRescue Commander-gate decision log (shadow/enforce)
+cyberrescue_gate_log.jsonl
+# CyberRescue live sync runtime artifacts. `python -m cyberrescue.live sync` refuses
+# to write inside the repository; these patterns guard against manual copies.
+live_sync_*.jsonl
+*.live-sync.lock
+# JetBrains IDE settings (local only)
+.idea/

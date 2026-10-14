@@ -1,0 +1,86 @@
+{
+  "_comment": "Mock asset inventory for WarRoom. Phase 3 domain data. The PII server (srv-db-01) is the hinge of the INC-C demo: ransomware lands on a host that holds customer_pii, which is what forces Compliance to veto the wipe.",
+  "assets": [
+    {
+      "asset_id": "srv-db-01",
+      "hostname": "srv-db-01.prod.acme.internal",
+      "role": "Primary customer database (PostgreSQL)",
+      "criticality": "critical",
+      "network_segment": "prod-db",
+      "data_classes": ["customer_pii", "financial"],
+      "owner": "Data Platform Team",
+      "record_count": 2400000,
+      "notes": "Holds 2.4M EU + US customer records. In scope for GDPR and SEC materiality."
+    },
+    {
+      "asset_id": "srv-web-01",
+      "hostname": "srv-web-01.dmz.acme.internal",
+      "role": "Public web frontend (nginx)",
+      "criticality": "high",
+      "network_segment": "dmz",
+      "data_classes": ["public"],
+      "owner": "Web Platform Team",
+      "notes": "Internet-facing. No customer data at rest."
+    },
+    {
+      "asset_id": "srv-app-01",
+      "hostname": "srv-app-01.prod.acme.internal",
+      "role": "Application/API server",
+      "criticality": "high",
+      "network_segment": "prod-app",
+      "data_classes": ["internal_confidential"],
+      "owner": "Application Team",
+      "notes": "Holds session tokens and app secrets, no bulk PII."
+    },
+    {
+      "asset_id": "srv-dc-01",
+      "hostname": "srv-dc-01.corp.acme.internal",
+      "role": "Active Directory domain controller",
+      "criticality": "critical",
+      "network_segment": "corp-core",
+      "data_classes": ["credentials"],
+      "owner": "Identity Team",
+      "notes": "Compromise here implies domain-wide lateral movement."
+    },
+    {
+      "asset_id": "srv-mail-01",
+      "hostname": "srv-mail-01.corp.acme.internal",
+      "role": "Corporate mail server (Exchange)",
+      "criticality": "high",
+      "network_segment": "corp-core",
+      "data_classes": ["employee_pii"],
+      "owner": "IT Operations",
+      "notes": "Employee mailboxes — employee PII, not customer PII."
+    },
+    {
+      "asset_id": "srv-backup-01",
+      "hostname": "srv-backup-01.prod.acme.internal",
+      "role": "Backup and snapshot vault",
+      "criticality": "high",
+      "network_segment": "prod-backup",
+      "data_classes": ["internal_confidential"],
+      "owner": "Infrastructure Team",
+      "notes": "Immutable snapshots; recovery source if a prod host is wiped."
+    },
+    {
+      "asset_id": "ws-eng-014",
+      "hostname": "ws-eng-014.corp.acme.internal",
+      "role": "Engineering workstation",
+      "criticality": "medium",
+      "network_segment": "corp-user",
+      "data_classes": ["internal_confidential"],
+      "owner": "A. Rivera (Engineering)",
+      "notes": "Developer laptop, source-code access."
+    },
+    {
+      "asset_id": "ws-fin-007",
+      "hostname": "ws-fin-007.corp.acme.internal",
+      "role": "Finance workstation",
+      "criticality": "medium",
+      "network_segment": "corp-user",
+      "data_classes": ["financial"],
+      "owner": "M. Chen (Finance)",
+      "notes": "Access to financial reporting; in SEC materiality scope if breached."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "_comment": "Mock threat-intel indicator database for WarRoom. Phase 3 domain data. Indicators are grouped by threat actor / malware family. INC-C's indicators map to the BlackHaze ransomware set (high confidence, active, lateral movement) which is what drives Threat Intel's 'isolate and wipe now' recommendation.",
+  "indicators": [
+    {
+      "indicator": "9f2c4e7a1b8d3056c4a9e1f7b2d6803a5e9c1742f8b3a6d40e2c7f9a1b3d5e6c",
+      "type": "sha256",
+      "actor": "FIN-Spectre",
+      "malware_family": "BlackHaze ransomware",
+      "confidence": "high",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-05-29",
+      "description": "BlackHaze ransomware payload (encryptor). Self-propagates via SMB and stolen credentials."
+    },
+    {
+      "indicator": "185.220.101.47",
+      "type": "ipv4",
+      "actor": "FIN-Spectre",
+      "malware_family": "BlackHaze ransomware",
+      "confidence": "high",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-06-01",
+      "description": "BlackHaze command-and-control node. Receives exfil and issues encrypt commands."
+    },
+    {
+      "indicator": "blackhaze-recovery.onion",
+      "type": "domain",
+      "actor": "FIN-Spectre",
+      "malware_family": "BlackHaze ransomware",
+      "confidence": "high",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-06-02",
+      "description": "BlackHaze ransom-negotiation portal (Tor)."
+    },
+    {
+      "indicator": "update-svc-acme.com",
+      "type": "domain",
+      "actor": "FIN-Spectre",
+      "malware_family": "BlackHaze ransomware",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-06-05",
+      "description": "Typosquat staging domain used for BlackHaze second-stage delivery."
+    },
+    {
+      "indicator": "7c1f9b44a2e6d8035f1c0a7e9d2b46813c5a0e9f4b7d2a16c8e3f0b5d9a2c4e1",
+      "type": "sha256",
+      "actor": "Pidgin-Crew",
+      "malware_family": "GreyLoader",
+      "confidence": "high",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-04-12",
+      "description": "GreyLoader commodity trojan dropper. Steals browser creds; no self-propagation observed."
+    },
+    {
+      "indicator": "45.137.21.9",
+      "type": "ipv4",
+      "actor": "Pidgin-Crew",
+      "malware_family": "GreyLoader",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-04-15",
+      "description": "GreyLoader C2 dropzone."
+    },
+    {
+      "indicator": "cdn-pidgin-loader.net",
+      "type": "domain",
+      "actor": "Pidgin-Crew",
+      "malware_family": "GreyLoader",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-04-18",
+      "description": "GreyLoader payload host."
+    },
+    {
+      "indicator": "a0b1c2d3e4f5061728394a5b6c7d8e9f0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+      "type": "sha256",
+      "actor": "APT-Hollowpoint",
+      "malware_family": "HollowRAT",
+      "confidence": "high",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-03-02",
+      "description": "HollowRAT espionage implant; process-hollowing, credential theft, lateral movement."
+    },
+    {
+      "indicator": "203.0.113.66",
+      "type": "ipv4",
+      "actor": "APT-Hollowpoint",
+      "malware_family": "HollowRAT",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-03-04",
+      "description": "HollowRAT C2."
+    },
+    {
+      "indicator": "5d8e1a3f7c2b9046e8d1f3a5c7b9024e6f8a1c3d5b7e9012f4a6c8e0b2d4f6a8",
+      "type": "sha256",
+      "actor": "FIN-Spectre",
+      "malware_family": "BlackHaze ransomware",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-06-08",
+      "description": "BlackHaze loader variant; drops the encryptor after credential harvesting."
+    },
+    {
+      "indicator": "198.51.100.23",
+      "type": "ipv4",
+      "actor": "Unknown",
+      "malware_family": "Cobalt Strike (commodity)",
+      "confidence": "medium",
+      "status": "active",
+      "lateral_movement": true,
+      "first_seen": "2026-05-20",
+      "description": "Cobalt Strike team-server beacon, frequently reused across intrusions."
+    },
+    {
+      "indicator": "f1e2d3c4b5a6079885746352413f0e1d2c3b4a5968778695a4b3c2d1e0f9a8b7",
+      "type": "sha256",
+      "actor": "ScriptKiddie",
+      "malware_family": "XMRig (cryptominer)",
+      "confidence": "low",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-02-10",
+      "description": "Coin-miner. Nuisance, not data-theft; low business impact."
+    },
+    {
+      "indicator": "miner-pool-relay.xyz",
+      "type": "domain",
+      "actor": "ScriptKiddie",
+      "malware_family": "XMRig (cryptominer)",
+      "confidence": "low",
+      "status": "active",
+      "lateral_movement": false,
+      "first_seen": "2026-02-11",
+      "description": "Mining pool relay."
+    },
+    {
+      "indicator": "8.8.8.8",
+      "type": "ipv4",
+      "actor": "Benign",
+      "malware_family": "none",
+      "confidence": "none",
+      "status": "benign",
+      "lateral_movement": false,
+      "first_seen": "n/a",
+      "description": "Google public DNS. Explicitly whitelisted — appears in false-positive alerts."
+    },
+    {
+      "indicator": "windowsupdate.microsoft.com",
+      "type": "domain",
+      "actor": "Benign",
+      "malware_family": "none",
+      "confidence": "none",
+      "status": "benign",
+      "lateral_movement": false,
+      "first_seen": "n/a",
+      "description": "Legitimate Microsoft update endpoint. Explicitly whitelisted."
+    }
+  ]
+}

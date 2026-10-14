@@ -1,0 +1,21 @@
+{
+  "incident_id": "INC-B-2026-0041",
+  "title": "Suspicious outbound traffic flagged on web frontend",
+  "source": "Network IDS (SuriWatch)",
+  "detected_utc": "2026-06-13T11:42:55Z",
+  "asset_id": "srv-web-01",
+  "severity_hint": "low",
+  "category_hint": "suspicious_network",
+  "indicators": [
+    "8.8.8.8",
+    "windowsupdate.microsoft.com"
+  ],
+  "observations": [
+    "Heuristic flagged periodic outbound connections as 'possible beaconing'.",
+    "Destinations resolve to Google public DNS and the Microsoft Update service.",
+    "Both destinations are on the organization's allowlist.",
+    "No malware detection, no file changes, no credential activity."
+  ],
+  "raw_signal": "DetectName=Heuristic.PossibleBeacon Severity=Low Tactic=CommandAndControl Technique=T1071 Host=srv-web-01",
+  "_demo_note": "False positive: indicators are whitelisted/benign in the IOC DB. Triage should classify and CLOSE without recruiting any specialists — proves proportionality at the bottom of the scale."
+}

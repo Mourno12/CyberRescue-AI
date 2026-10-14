@@ -1,0 +1,94 @@
+﻿{
+    "data":  [
+                 {
+                     "id":  "e006564e-18b3-4c8f-b96d-842c4d26ab8e",
+                     "metadata":  {
+                                      "delivery_status":  {
+                                                              "e7fffea0-aa9c-4291-96d0-531a612806d8":  {
+                                                                                                           "attempts":  [
+                                                                                                                            {
+                                                                                                                                "attempt_number":  1,
+                                                                                                                                "completed_at":  "2026-06-13T20:21:11.901361Z",
+                                                                                                                                "error":  null,
+                                                                                                                                "started_at":  "2026-06-13T20:21:07.274844Z",
+                                                                                                                                "status":  "success"
+                                                                                                                            }
+                                                                                                                        ],
+                                                                                                           "current_attempt":  1,
+                                                                                                           "delivered_at":  "2026-06-13T20:21:07.274844Z",
+                                                                                                           "processed_at":  "2026-06-13T20:21:11.901361Z",
+                                                                                                           "status":  "processed"
+                                                                                                       }
+                                                          },
+                                      "mentions":  [
+                                                       {
+                                                           "handle":  "merolavtech/triage",
+                                                           "id":  "e7fffea0-aa9c-4291-96d0-531a612806d8",
+                                                           "name":  "triage",
+                                                           "type":  "agent"
+                                                       }
+                                                   ],
+                                      "status":  "sent"
+                                  },
+                     "content":  "@[[e7fffea0-aa9c-4291-96d0-531a612806d8]] say hi and list the platform tools you can see",
+                     "inserted_at":  "2026-06-13T20:20:42.707288Z",
+                     "updated_at":  "2026-06-13T20:21:11.908538Z",
+                     "message_type":  "text",
+                     "sender_id":  "45101ead-d0e6-4dff-aba3-6aabb9298a42",
+                     "sender_type":  "User",
+                     "sender_name":  "George N"
+                 },
+                 {
+                     "id":  "92a35346-a271-495a-a70c-8a5678718d2d",
+                     "metadata":  {
+
+                                  },
+                     "content":  "{\"event\": \"on_tool_start\", \"data\": {\"input\": {\"content\": \"Hi! As a quickstart test agent, I can see the following platform tools:\\n- thenvoi_send_message\\n- thenvoi_add_participant\\n- thenvoi_remove_participant\\n- thenvoi_lookup_peers\\n- thenvoi_get_participants\\n- thenvoi_create_chatroom\\n- thenvoi_send_event\", \"mentions\": [\"@merolavtech\"]}}, \"name\": \"thenvoi_send_message\", \"tags\": [\"seq:step:1\"], \"run_id\": \"019ec2a5-3a27-7682-a339-e04c1b453d96\", \"metadata\": {\"thread_id\": \"2e810b31-847f-450d-9a63-49b3e1cdc5a2\", \"ls_integration\": \"langgraph\", \"langgraph_step\": 2, \"langgraph_node\": \"tools\", \"langgraph_triggers\": [\"__pregel_push\"], \"langgraph_path\": [\"__pregel_push\", 0, false], \"langgraph_checkpoint_ns\": \"tools:5b234bbf-45ef-df55-56cf-9d32b0a3aaa0\", \"checkpoint_ns\": \"tools:5b234bbf-45ef-df55-56cf-9d32b0a3aaa0\"}, \"parent_ids\": [\"019ec2a5-31d2-7a10-8119-56ba3f64ef8a\", \"019ec2a5-3a26-7462-b197-f93b34613bac\"]}",
+                     "inserted_at":  "2026-06-13T20:21:10.198556Z",
+                     "updated_at":  "2026-06-13T20:21:10.198556Z",
+                     "message_type":  "tool_call",
+                     "sender_id":  "e7fffea0-aa9c-4291-96d0-531a612806d8",
+                     "sender_type":  "Agent",
+                     "sender_name":  "triage"
+                 },
+                 {
+                     "id":  "5c471c3b-c1b2-4325-92f3-0d743f389455",
+                     "metadata":  {
+                                      "mentions":  [
+                                                       {
+                                                           "handle":  "merolavtech",
+                                                           "id":  "45101ead-d0e6-4dff-aba3-6aabb9298a42",
+                                                           "name":  "George N",
+                                                           "type":  "user"
+                                                       }
+                                                   ],
+                                      "status":  "sent"
+                                  },
+                     "content":  "@[[45101ead-d0e6-4dff-aba3-6aabb9298a42]] Hi! As a quickstart test agent, I can see the following platform tools:\n- thenvoi_send_message\n- thenvoi_add_participant\n- thenvoi_remove_participant\n- thenvoi_lookup_peers\n- thenvoi_get_participants\n- thenvoi_create_chatroom\n- thenvoi_send_event",
+                     "inserted_at":  "2026-06-13T20:21:10.640544Z",
+                     "updated_at":  "2026-06-13T20:21:10.640544Z",
+                     "message_type":  "text",
+                     "sender_id":  "e7fffea0-aa9c-4291-96d0-531a612806d8",
+                     "sender_type":  "Agent",
+                     "sender_name":  "triage"
+                 },
+                 {
+                     "id":  "a8b19f01-a8b5-4251-8785-317392c9ef4f",
+                     "metadata":  {
+
+                                  },
+                     "content":  "{\"event\": \"on_tool_end\", \"data\": {\"output\": \"content=\\\"id=\u00275c471c3b-c1b2-4325-92f3-0d743f389455\u0027 recipients=[MessageSentResponseRecipientsItem(handle=\u0027merolavtech\u0027, id=\u002745101ead-d0e6-4dff-aba3-6aabb9298a42\u0027, name=\u0027George N\u0027)] success=True\\\" name=\u0027thenvoi_send_message\u0027 tool_call_id=\u0027call_HElYhcyFmKx0EVsNRgk5N6HF\u0027\", \"input\": {\"content\": \"Hi! As a quickstart test agent, I can see the following platform tools:\\n- thenvoi_send_message\\n- thenvoi_add_participant\\n- thenvoi_remove_participant\\n- thenvoi_lookup_peers\\n- thenvoi_get_participants\\n- thenvoi_create_chatroom\\n- thenvoi_send_event\", \"mentions\": [\"@merolavtech\"]}}, \"run_id\": \"019ec2a5-3a27-7682-a339-e04c1b453d96\", \"name\": \"thenvoi_send_message\", \"tags\": [\"seq:step:1\"], \"metadata\": {\"thread_id\": \"2e810b31-847f-450d-9a63-49b3e1cdc5a2\", \"ls_integration\": \"langgraph\", \"langgraph_step\": 2, \"langgraph_node\": \"tools\", \"langgraph_triggers\": [\"__pregel_push\"], \"langgraph_path\": [\"__pregel_push\", 0, false], \"langgraph_checkpoint_ns\": \"tools:5b234bbf-45ef-df55-56cf-9d32b0a3aaa0\", \"checkpoint_ns\": \"tools:5b234bbf-45ef-df55-56cf-9d32b0a3aaa0\"}, \"parent_ids\": [\"019ec2a5-31d2-7a10-8119-56ba3f64ef8a\", \"019ec2a5-3a26-7462-b197-f93b34613bac\"]}",
+                     "inserted_at":  "2026-06-13T20:21:10.932570Z",
+                     "updated_at":  "2026-06-13T20:21:10.932570Z",
+                     "message_type":  "tool_result",
+                     "sender_id":  "e7fffea0-aa9c-4291-96d0-531a612806d8",
+                     "sender_type":  "Agent",
+                     "sender_name":  "triage"
+                 }
+             ],
+    "metadata":  {
+                     "limit":  50,
+                     "next_cursor":  null,
+                     "has_more":  false
+                 }
+}

@@ -1,0 +1,3 @@
+# CyberRescue synthetic datasets are regenerated and checked byte-for-byte;
+# keep LF endings on every platform (core.autocrlf would otherwise rewrite them).
+datasets/cyberrescue/** text eol=lf

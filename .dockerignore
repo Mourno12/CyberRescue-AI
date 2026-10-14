@@ -1,0 +1,11 @@
+.env
+.env.local
+agent_config.yaml
+.git
+.venv
+.uv
+__pycache__
+*.pyc
+.claude
+exports
+demo/backup_video.mp4

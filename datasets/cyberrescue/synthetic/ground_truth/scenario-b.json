@@ -1,0 +1,83 @@
+{
+  "attack_chain": [],
+  "benign_explanations": [
+    {
+      "event_ids": [
+        "scenario-b-000001",
+        "scenario-b-000002",
+        "scenario-b-000017",
+        "scenario-b-000018",
+        "scenario-b-000031",
+        "scenario-b-000032",
+        "scenario-b-000047",
+        "scenario-b-000048",
+        "scenario-b-000061",
+        "scenario-b-000062",
+        "scenario-b-000078",
+        "scenario-b-000079",
+        "scenario-b-000093",
+        "scenario-b-000094",
+        "scenario-b-000109",
+        "scenario-b-000110",
+        "scenario-b-000123",
+        "scenario-b-000124",
+        "scenario-b-000140",
+        "scenario-b-000141"
+      ],
+      "explanation": "Resolver misconfigured to 8.8.8.8, polled every 5 minutes."
+    },
+    {
+      "event_ids": [
+        "scenario-b-000004",
+        "scenario-b-000005",
+        "scenario-b-000034",
+        "scenario-b-000035",
+        "scenario-b-000064",
+        "scenario-b-000065",
+        "scenario-b-000096",
+        "scenario-b-000097",
+        "scenario-b-000127",
+        "scenario-b-000128"
+      ],
+      "explanation": "svchost.exe Windows Update check every 10 minutes."
+    },
+    {
+      "event_ids": [
+        "scenario-b-000068"
+      ],
+      "explanation": "Internet background scan with a hostile User-Agent; rejected with HTTP 400 and unrelated to the alert."
+    }
+  ],
+  "category": "suspicious_network",
+  "dataset": "scenario-b",
+  "evaluation_only": true,
+  "event_count": 153,
+  "facts": {
+    "beacon_destinations": [
+      "8.8.8.8",
+      "windowsupdate.microsoft.com"
+    ],
+    "beacon_period_seconds": [
+      300,
+      600
+    ],
+    "credential_activity": false,
+    "destinations_allowlisted": true,
+    "malware_observed": false,
+    "pii_host_affected": false,
+    "suspicious_file_changes": false
+  },
+  "ground_truth_schema": "cyberrescue.ground_truth/v1",
+  "hostile_content_event_ids": [
+    "scenario-b-000068"
+  ],
+  "incident_alias": "INC-B",
+  "incident_id": "INC-B-2026-0041",
+  "malicious_event_ids": [],
+  "scenario": "B",
+  "summary": "Periodic outbound traffic from srv-web-01 to Google public DNS and the Microsoft Update service \u2014 both allowlisted. No malware, no file changes, no credential activity.",
+  "vendor_alert_event_ids": [
+    "scenario-b-000134"
+  ],
+  "verdict": "false_positive"
+}

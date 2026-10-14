@@ -1,0 +1,22 @@
+{
+  "incident_id": "INC-C-2026-0042",
+  "title": "Ransomware encryption activity on primary customer database",
+  "source": "EDR sensor (CrowdFalcon)",
+  "detected_utc": "2026-06-13T14:07:22Z",
+  "asset_id": "srv-db-01",
+  "severity_hint": "critical",
+  "category_hint": "ransomware",
+  "indicators": [
+    "9f2c4e7a1b8d3056c4a9e1f7b2d6803a5e9c1742f8b3a6d40e2c7f9a1b3d5e6c",
+    "185.220.101.47",
+    "blackhaze-recovery.onion"
+  ],
+  "observations": [
+    "Process spawned from a non-standard path began renaming files with a .blackhaze extension.",
+    "Outbound TLS connection to 185.220.101.47 immediately before mass file writes.",
+    "SMB authentication attempts from srv-db-01 to srv-app-01 and srv-dc-01 using a service account.",
+    "Ransom note 'RECOVER_YOUR_FILES.txt' dropped in multiple directories."
+  ],
+  "raw_signal": "DetectName=Ransomware.BlackHaze Severity=Critical Tactic=Impact Technique=T1486 DataEncryptedForImpact Host=srv-db-01",
+  "_demo_note": "THE contested incident. Ransomware (Intel: isolate+wipe now, lateral movement high) on the customer_pii host (Compliance: GDPR 72h clock + evidence preservation -> VETO the wipe). The conflict is produced by the agents' own tools, not scripted."
+}

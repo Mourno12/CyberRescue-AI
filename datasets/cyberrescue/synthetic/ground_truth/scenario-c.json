@@ -1,0 +1,75 @@
+{
+  "attack_chain": [
+    {
+      "description": "Phishing e-mail with invoice_0613.zip; dropper extracted to Downloads.",
+      "event_ids": [
+        "scenario-c-000055",
+        "scenario-c-000072"
+      ],
+      "stage": "initial_access"
+    },
+    {
+      "description": "User runs InvoiceViewer.exe (GreyLoader).",
+      "event_ids": [
+        "scenario-c-000077"
+      ],
+      "stage": "execution"
+    },
+    {
+      "description": "HKCU Run key PidginUpdate points to the dropper.",
+      "event_ids": [
+        "scenario-c-000078"
+      ],
+      "stage": "persistence"
+    },
+    {
+      "description": "DNS lookup and proxy CONNECT to cdn-pidgin-loader.net, blocked.",
+      "event_ids": [
+        "scenario-c-000082",
+        "scenario-c-000083"
+      ],
+      "stage": "command_and_control"
+    }
+  ],
+  "benign_explanations": [],
+  "category": "malware",
+  "dataset": "scenario-c",
+  "evaluation_only": true,
+  "event_count": 110,
+  "facts": {
+    "c2_blocked_by_proxy": true,
+    "c2_contact": false,
+    "c2_domains": [
+      "cdn-pidgin-loader.net"
+    ],
+    "compromised_hosts": [
+      "ws-eng-014"
+    ],
+    "initial_vector": "phishing_attachment",
+    "lateral_movement_attempted": false,
+    "malware_family": "GreyLoader",
+    "malware_sha256": "7c1f9b44a2e6d8035f1c0a7e9d2b46813c5a0e9f4b7d2a16c8e3f0b5d9a2c4e1",
+    "patient_zero": "ws-eng-014",
+    "pii_host_affected": false
+  },
+  "ground_truth_schema": "cyberrescue.ground_truth/v1",
+  "hostile_content_event_ids": [
+    "scenario-c-000055"
+  ],
+  "incident_alias": "INC-A",
+  "incident_id": "INC-A-2026-0039",
+  "malicious_event_ids": [
+    "scenario-c-000055",
+    "scenario-c-000072",
+    "scenario-c-000077",
+    "scenario-c-000078",
+    "scenario-c-000082",
+    "scenario-c-000083"
+  ],
+  "scenario": "C",
+  "summary": "Phishing attachment runs the GreyLoader dropper from the user's Downloads folder; one beacon to cdn-pidgin-loader.net is blocked by the proxy. No lateral movement; no PII on the host.",
+  "vendor_alert_event_ids": [
+    "scenario-c-000084"
+  ],
+  "verdict": "true_positive"
+}

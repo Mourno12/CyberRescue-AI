@@ -1,0 +1,74 @@
+{
+  "_comment": "Machine-readable regulatory rules for WarRoom. Phase 3 domain data. Compliance's check_regulatory_triggers matches an incident's affected data_classes against each rule's trigger.data_classes; a match returns the obligation, the clock duration, and whether evidence must be preserved (which is what blocks a wipe).",
+  "rules": [
+    {
+      "rule_id": "GDPR-ART-33",
+      "name": "GDPR Article 33 — Personal data breach notification",
+      "jurisdiction": "EU",
+      "trigger": {
+        "data_classes": ["customer_pii", "employee_pii"],
+        "conditions": "Confirmed or suspected breach of personal data (confidentiality, integrity, or availability)."
+      },
+      "deadline": {
+        "value": 72,
+        "unit": "hours",
+        "business_days": false
+      },
+      "obligation": "Notify the lead supervisory authority within 72 hours of becoming aware. If notification exceeds 72h, document the reasons for delay.",
+      "evidence_preservation_required": true,
+      "authority": "Lead EU Data Protection Authority"
+    },
+    {
+      "rule_id": "SEC-8K-1.05",
+      "name": "SEC Item 1.05 — Material cybersecurity incident (Form 8-K)",
+      "jurisdiction": "US",
+      "trigger": {
+        "data_classes": ["customer_pii", "financial"],
+        "conditions": "Cybersecurity incident determined to be material to a reasonable investor."
+      },
+      "deadline": {
+        "value": 4,
+        "unit": "business_days",
+        "business_days": true
+      },
+      "obligation": "File a Form 8-K describing the material aspects of the incident within 4 business days of the materiality determination.",
+      "evidence_preservation_required": true,
+      "authority": "U.S. Securities and Exchange Commission"
+    },
+    {
+      "rule_id": "HIPAA-BREACH",
+      "name": "HIPAA Breach Notification Rule",
+      "jurisdiction": "US",
+      "trigger": {
+        "data_classes": ["phi", "health"],
+        "conditions": "Unsecured protected health information (PHI) acquired, accessed, used, or disclosed."
+      },
+      "deadline": {
+        "value": 60,
+        "unit": "days",
+        "business_days": false
+      },
+      "obligation": "Notify affected individuals and HHS without unreasonable delay and no later than 60 days from discovery.",
+      "evidence_preservation_required": true,
+      "authority": "U.S. Department of Health and Human Services (OCR)"
+    },
+    {
+      "rule_id": "FORENSIC-RETENTION",
+      "name": "Internal forensic evidence retention policy",
+      "jurisdiction": "Internal",
+      "trigger": {
+        "data_classes": ["customer_pii", "employee_pii", "financial", "credentials", "phi", "health"],
+        "conditions": "Any incident that may lead to regulatory notification or litigation."
+      },
+      "deadline": {
+        "value": 0,
+        "unit": "immediate",
+        "business_days": false
+      },
+      "obligation": "Preserve a forensically sound disk image and volatile-memory capture of affected hosts BEFORE any remediation that destroys state (wipe, reimage). Destroying evidence may constitute spoliation. While a host is under an active litigation/regulatory hold, a forensic image does NOT release the hold: the host itself must be retained intact, and any destruction (wipe/reimage) requires explicit written authorization from a human officer (DPO / General Counsel / CISO).",
+      "evidence_preservation_required": true,
+      "requires_human_authorization_to_destroy": true,
+      "authority": "Office of General Counsel"
+    }
+  ]
+}

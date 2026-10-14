@@ -1,0 +1,38 @@
+[project]
+name = "warroom"
+version = "0.1.0"
+description = "Multi-agent cybersecurity incident response through Band"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Band SDK — PINNED to 0.2.x. 1.0.0 renamed the module thenvoi->band and
+    # reworked the adapter API; all our code targets the 0.2.x `thenvoi` API.
+    # Do not unpin without migrating.
+    # One extra per framework. NOTE: 0.2.11 has NO OpenAI Agents SDK adapter
+    # (the `[openai]` extra only installs the openai lib, no adapter class) and
+    # CrewAI requires Python <3.14 (we run 3.14), so Threat Intel reuses the
+    # LangGraph adapter. Net: 3 distinct frameworks across 4 agents + 1 human.
+    "band-sdk[langgraph]==0.2.11",    # Triage + Threat Intel
+    "band-sdk[pydantic-ai]==0.2.11",  # Compliance (second account)
+    "band-sdk[anthropic]==0.2.11",    # Commander
+    # band-sdk's pydantic_ai adapter calls Agent(..., output_type=None), which
+    # pydantic-ai-slim 1.107 rejects ("output type must be provided"). Pin to
+    # the >=1.56.0 baseline band-sdk targets, where output_type=None still
+    # defaults to str. Do not unpin without re-testing the Compliance agent.
+    "pydantic-ai-slim==1.56.0",
+    "anthropic>=0.40.0",
+    "langchain-openai>=0.2.0",
+    "langgraph>=0.2.0",
+    "openai>=1.50.0",
+    "pyyaml>=6.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.pytest.ini_options]
+# Default run = the offline suite only. Live (network) tests live in tests_live/
+# and are run explicitly; they also skip unless CYBERRESCUE_LIVE_TESTS=1.
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["shared*", "agents*", "injector*", "exporter*", "cyberrescue*"]

@@ -1,0 +1,213 @@
+{
+  "attack_chain": [
+    {
+      "description": "Service UpdSvc installed and bhz.exe started from C:\\ProgramData\\upd (non-standard path) as svc_sqlbackup.",
+      "event_ids": [
+        "scenario-a-000132",
+        "scenario-a-000133"
+      ],
+      "stage": "execution"
+    },
+    {
+      "description": "vssadmin deletes all shadow copies.",
+      "event_ids": [
+        "scenario-a-000135"
+      ],
+      "stage": "inhibit_recovery"
+    },
+    {
+      "description": "TLS connection to 185.220.101.47 immediately before mass file writes.",
+      "event_ids": [
+        "scenario-a-000139",
+        "scenario-a-000140"
+      ],
+      "stage": "command_and_control"
+    },
+    {
+      "description": "NTLM/SMB authentication from srv-db-01 to srv-dc-01 (failed) and srv-app-01 (succeeded).",
+      "event_ids": [
+        "scenario-a-000144",
+        "scenario-a-000145",
+        "scenario-a-000147",
+        "scenario-a-000148",
+        "scenario-a-000149",
+        "scenario-a-000150",
+        "scenario-a-000154",
+        "scenario-a-000155",
+        "scenario-a-000156",
+        "scenario-a-000157",
+        "scenario-a-000158",
+        "scenario-a-000159"
+      ],
+      "stage": "lateral_movement_attempt"
+    },
+    {
+      "description": "Files renamed to .blackhaze and ransom notes dropped.",
+      "event_ids": [
+        "scenario-a-000164",
+        "scenario-a-000165",
+        "scenario-a-000167",
+        "scenario-a-000170",
+        "scenario-a-000171",
+        "scenario-a-000172",
+        "scenario-a-000173",
+        "scenario-a-000174",
+        "scenario-a-000176",
+        "scenario-a-000177",
+        "scenario-a-000178",
+        "scenario-a-000179",
+        "scenario-a-000180",
+        "scenario-a-000181",
+        "scenario-a-000182",
+        "scenario-a-000183",
+        "scenario-a-000184",
+        "scenario-a-000186",
+        "scenario-a-000188",
+        "scenario-a-000189",
+        "scenario-a-000190",
+        "scenario-a-000192",
+        "scenario-a-000193",
+        "scenario-a-000195",
+        "scenario-a-000196",
+        "scenario-a-000197",
+        "scenario-a-000198",
+        "scenario-a-000199",
+        "scenario-a-000200",
+        "scenario-a-000201",
+        "scenario-a-000202",
+        "scenario-a-000203",
+        "scenario-a-000204",
+        "scenario-a-000205",
+        "scenario-a-000206",
+        "scenario-a-000207",
+        "scenario-a-000208",
+        "scenario-a-000209",
+        "scenario-a-000210",
+        "scenario-a-000211",
+        "scenario-a-000212"
+      ],
+      "stage": "impact"
+    }
+  ],
+  "benign_explanations": [
+    {
+      "event_ids": [
+        "scenario-a-000061",
+        "scenario-a-000073",
+        "scenario-a-000077",
+        "scenario-a-000082",
+        "scenario-a-000085",
+        "scenario-a-000089"
+      ],
+      "explanation": "Scheduled pg_dump backup and rsync to srv-backup-01 by the same service account \u2014 legitimate."
+    },
+    {
+      "event_ids": [
+        "scenario-a-000042"
+      ],
+      "explanation": "Single interactive logon failure by mchen \u2014 a mistyped password."
+    }
+  ],
+  "category": "ransomware",
+  "dataset": "scenario-a",
+  "evaluation_only": true,
+  "event_count": 225,
+  "facts": {
+    "abused_account": "svc_sqlbackup",
+    "c2_contact": true,
+    "c2_ips": [
+      "185.220.101.47"
+    ],
+    "compromised_hosts": [
+      "srv-db-01"
+    ],
+    "encrypted_extension": ".blackhaze",
+    "encryption_observed": true,
+    "lateral_auth_succeeded": [
+      "srv-app-01"
+    ],
+    "lateral_auth_targets": [
+      "srv-app-01",
+      "srv-dc-01"
+    ],
+    "lateral_code_execution_observed": false,
+    "malware_path": "C:\\ProgramData\\upd\\bhz.exe",
+    "malware_sha256": "9f2c4e7a1b8d3056c4a9e1f7b2d6803a5e9c1742f8b3a6d40e2c7f9a1b3d5e6c",
+    "patient_zero": "srv-db-01",
+    "pii_host_affected": true,
+    "ransom_note": "RECOVER_YOUR_FILES.txt",
+    "shadow_copies_deleted": true
+  },
+  "ground_truth_schema": "cyberrescue.ground_truth/v1",
+  "hostile_content_event_ids": [
+    "scenario-a-000212"
+  ],
+  "incident_alias": "INC-C",
+  "incident_id": "INC-C-2026-0042",
+  "malicious_event_ids": [
+    "scenario-a-000132",
+    "scenario-a-000133",
+    "scenario-a-000135",
+    "scenario-a-000139",
+    "scenario-a-000140",
+    "scenario-a-000144",
+    "scenario-a-000145",
+    "scenario-a-000147",
+    "scenario-a-000148",
+    "scenario-a-000149",
+    "scenario-a-000150",
+    "scenario-a-000154",
+    "scenario-a-000155",
+    "scenario-a-000156",
+    "scenario-a-000157",
+    "scenario-a-000158",
+    "scenario-a-000159",
+    "scenario-a-000164",
+    "scenario-a-000165",
+    "scenario-a-000167",
+    "scenario-a-000170",
+    "scenario-a-000171",
+    "scenario-a-000172",
+    "scenario-a-000173",
+    "scenario-a-000174",
+    "scenario-a-000176",
+    "scenario-a-000177",
+    "scenario-a-000178",
+    "scenario-a-000179",
+    "scenario-a-000180",
+    "scenario-a-000181",
+    "scenario-a-000182",
+    "scenario-a-000183",
+    "scenario-a-000184",
+    "scenario-a-000186",
+    "scenario-a-000188",
+    "scenario-a-000189",
+    "scenario-a-000190",
+    "scenario-a-000192",
+    "scenario-a-000193",
+    "scenario-a-000195",
+    "scenario-a-000196",
+    "scenario-a-000197",
+    "scenario-a-000198",
+    "scenario-a-000199",
+    "scenario-a-000200",
+    "scenario-a-000201",
+    "scenario-a-000202",
+    "scenario-a-000203",
+    "scenario-a-000204",
+    "scenario-a-000205",
+    "scenario-a-000206",
+    "scenario-a-000207",
+    "scenario-a-000208",
+    "scenario-a-000209",
+    "scenario-a-000210",
+    "scenario-a-000211",
+    "scenario-a-000212"
+  ],
+  "scenario": "A",
+  "summary": "BlackHaze ransomware runs as svc_sqlbackup on the customer-PII database, contacts its C2, attempts SMB authentication to the app server and domain controller, deletes shadow copies, encrypts files and drops ransom notes.",
+  "vendor_alert_event_ids": [
+    "scenario-a-000214"
+  ],
+  "verdict": "true_positive"
+}
